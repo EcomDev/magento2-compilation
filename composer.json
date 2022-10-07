@@ -1,0 +1,29 @@
+{
+    "name": "ecomdev/magento2-compiler",
+    "description": "Magento 2 Drop-In replacement for setup:di:compile",
+    "type": "magento2-module",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "EcomDev\\Magento2Compiler\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EcomDev\\Magento2Compiler\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Chepurnyi",
+            "email": "ivan.chepurnyi@ecomdev.org"
+        }
+    ],
+    "require": {},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://mirror.mage-os.org/"
+        }
+    ]
+}
