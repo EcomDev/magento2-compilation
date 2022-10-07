@@ -80,7 +80,7 @@
     },
     {
       "type": "path",
-      "url": "../../../"
+      "url": "../../"
     }
   ],
   "minimum-stability": "dev"

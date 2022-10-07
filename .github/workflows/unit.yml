@@ -1,0 +1,32 @@
+name: Unit tests
+on: [push]
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: [7.4, 8.0]
+        composer-version: [2.x, 2.2.x, latest]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}-${{ matrix.php-version }}-${{ matrix.composer-version }}
+
+      - uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php-version }}
+          version: ${{ matrix.composer-version }}
+          args: --ignore-platform-reqs
+
+      - uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php-version }}
+          version: ${{ matrix.composer-version }}
+          command: tests:unit

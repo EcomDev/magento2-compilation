@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "620a3bf245537e77edc8c18b815edfc8",
+    "content-hash": "71c4abcc6fed2aa8d822d0ca2f18a407",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -143,16 +143,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.238.2",
+            "version": "3.238.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f2a1351b5eb5fe17508cc5c907a786955882b93c"
+                "reference": "14fb64c934614ea5a52c9931189f687f30b6ba3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f2a1351b5eb5fe17508cc5c907a786955882b93c",
-                "reference": "f2a1351b5eb5fe17508cc5c907a786955882b93c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/14fb64c934614ea5a52c9931189f687f30b6ba3b",
+                "reference": "14fb64c934614ea5a52c9931189f687f30b6ba3b",
                 "shasum": ""
             },
             "require": {
@@ -231,9 +231,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.238.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.238.3"
             },
-            "time": "2022-10-06T18:29:40+00:00"
+            "time": "2022-10-07T18:16:40+00:00"
         },
         {
             "name": "bacon/bacon-qr-code",
@@ -1332,19 +1332,34 @@
             "version": "dev-feature/6-dev-setup",
             "dist": {
                 "type": "path",
-                "url": "../../..",
-                "reference": "a29d1a8abe888779a36e9f2cafeb04c5ec774654"
+                "url": "../..",
+                "reference": "abbe0622084959797bd293abff941aad5b861753"
+            },
+            "require": {
+                "magento/framework": "~102.0|~103.0",
+                "magento/magento2-base": "~2.4.0",
+                "php": "~7.4|~8.0|~8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~9.5"
             },
             "type": "magento2-module",
             "autoload": {
                 "psr-4": {
                     "EcomDev\\Magento2Compiler\\": "src/"
-                }
+                },
+                "files": [
+                    "src/registration.php",
+                    "src/commands.php"
+                ]
             },
             "autoload-dev": {
                 "psr-4": {
                     "EcomDev\\Magento2Compiler\\": "tests/"
-                }
+                },
+                "files": [
+                    "tests/functions.php"
+                ]
             },
             "license": [
                 "MIT"

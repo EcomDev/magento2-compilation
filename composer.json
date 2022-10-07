@@ -6,12 +6,19 @@
     "autoload": {
         "psr-4": {
             "EcomDev\\Magento2Compiler\\": "src/"
-        }
+        },
+        "files": [
+            "src/registration.php",
+            "src/commands.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
             "EcomDev\\Magento2Compiler\\": "tests/"
-        }
+        },
+        "files": [
+            "tests/functions.php"
+        ]
     },
     "authors": [
         {
@@ -19,11 +26,31 @@
             "email": "ivan.chepurnyi@ecomdev.org"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "~7.4|~8.0|~8.1",
+        "magento/framework": "~102.0|~103.0",
+        "magento/magento2-base": "~2.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.5"
+    },
     "repositories": [
         {
-            "type": "vcs",
+            "type": "composer",
             "url": "https://mirror.mage-os.org/"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "magento/composer-dependency-version-audit-plugin": false,
+            "magento/magento-composer-installer": false
+        }
+    },
+    "scripts": {
+        "tests:unit": "phpunit tests --exclude-group integration",
+        "tests:integration": [
+            "./build.sh",
+            "phpunit tests --group integration"
+        ]
+    }
 }
