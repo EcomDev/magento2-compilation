@@ -8,13 +8,12 @@ jobs:
     strategy:
       matrix:
         php-version: [7.4, 8.0]
-        composer-version: [2.x, 2.2.x, latest]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache Composer dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /tmp/composer-cache
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}-${{ matrix.php-version }}-${{ matrix.composer-version }}
@@ -22,11 +21,9 @@ jobs:
       - uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-version }}
-          version: ${{ matrix.composer-version }}
           args: --ignore-platform-reqs
 
       - uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-version }}
-          version: ${{ matrix.composer-version }}
           command: tests:unit
