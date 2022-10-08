@@ -23,10 +23,11 @@ class IntegrationOfCompileCommandTest extends TestCase
      */
     public function listsCustomCommand(string $version)
     {
-        $result = \json_decode(
-            magentoCommand($version, 'help',  'setup:di:compile', '--format', 'json'),
-            true
-        );
+        $output = magentoCommand($version, 'help',  'setup:di:compile', '--format', 'json');
+
+        $this->assertJson($output);
+
+        $result = \json_decode($output, true);
 
         $this->assertStringContainsString("ecomdev/magento2-compiler", $result['description']);
     }

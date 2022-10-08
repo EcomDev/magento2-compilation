@@ -16,14 +16,16 @@ jobs:
         uses: actions/cache@v3
         with:
           path: /tmp/composer-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}-${{ matrix.php-version }}-${{ matrix.composer-version }}
+          key: ${{ runner.os }}-${{ matrix.php-version }}-${{ matrix.composer-version }}
 
       - uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-version }}
+          php_extensions: apcu bcmath gd intl pdo_mysql pcntl sodium
           args: --ignore-platform-reqs
 
       - uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-version }}
+          php_extensions: apcu bcmath gd intl pdo_mysql pcntl sodium
           command: tests:unit
